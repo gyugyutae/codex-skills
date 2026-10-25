@@ -1,0 +1,30 @@
+{
+  "asOf": "2026-10-25",
+  "name": "김규태",
+  "university": "경상국립대학교",
+  "department": "소프트웨어공학과",
+  "college": "IT공과대학",
+  "studentId": "2022011768",
+  "regularSemester": 7,
+  "academicYear": 4,
+  "academicPeriod": "2026-2",
+  "phone": "010-5405-6636",
+  "sources": {
+    "phone": "User supplied in this conversation, 2026-10-25",
+    "academic": "cmds Core Context.md and user confirmation, 2026-10-25"
+  },
+  "wikiLocations": {
+    "windows": "C:/Users/kym70/OneDrive/Desktop/cmds-llm-wiki-work",
+    "wsl": "/mnt/c/Users/kym70/OneDrive/Desktop/cmds-llm-wiki-work"
+  },
+  "signature": {
+    "bundled": "signature.png",
+    "driveFileId": "1m9S3yLIFOovUTRAh5QmVRFwMMBzJBYGf",
+    "driveUrl": "https://drive.google.com/file/d/1m9S3yLIFOovUTRAh5QmVRFwMMBzJBYGf/view",
+    "name": "김규태 서명.png"
+  },
+  "privacy": {
+    "authorizedRepository": "gyugyutae/codex-skills",
+    "visibilityAtInclusion": "PRIVATE"
+  }
+}

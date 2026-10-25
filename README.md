@@ -5,6 +5,7 @@
 | 스킬 | 설명 |
 | --- | --- |
 | [visual-talk-html](skills/visual-talk-html/SKILL.md) | 메모와 원본 이미지를 글이 적고 그림이 중심인 HTML 발표 자료로 정리합니다. |
+| [hwp-form-authoring](skills/hwp-form-authoring/SKILL.md) | 기존 한글 양식을 유지해 개인정보·증빙·서명을 채우고 HWP·PDF를 검증합니다. 개인 자료가 포함된 비공개 스킬입니다. |
 
 ## 설치
 

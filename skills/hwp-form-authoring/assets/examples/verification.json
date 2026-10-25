@@ -1,0 +1,13 @@
+{
+  "checkedOn": "2026-10-25",
+  "pages": 7,
+  "uiScreenshots": 10,
+  "signatures": 2,
+  "tableGeometryPreserved": true,
+  "signatureFitsPrintedMarker": true,
+  "pending": [
+    "회차별 실제 일시·시간 배분"
+  ],
+  "hwpSha256": "64bcfb81712c85ea458d2ebf68b8017db6fd59462d0559acc016ec09cedaf1e7",
+  "pdfSha256": "8dd10fc11114f76547320f376816c573002369dad606243e638cb44305cda560"
+}
