@@ -26,5 +26,24 @@
   "privacy": {
     "authorizedRepository": "gyugyutae/codex-skills",
     "visibilityAtInclusion": "PRIVATE"
+  },
+  "signaturePreferences": {
+    "approvedOn": "2026-10-25",
+    "widthRelativeToStamp": 3.2,
+    "aspectRatio": "preserve original 716:296",
+    "placement": "center over (인), TreatAsChar=false, TextWrap=InFrontOfText",
+    "exampleSizesHwpunit": [
+      {
+        "location": "activity plan",
+        "width": 6400,
+        "height": 2646
+      },
+      {
+        "location": "result report",
+        "width": 5420,
+        "height": 2240
+      }
+    ],
+    "basis": "User requested twice the preceding 1.6x-marker review size; use these as absolute defaults, not an instruction to repeatedly double."
   }
 }

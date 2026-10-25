@@ -37,7 +37,7 @@ Available helpers:
 For signature placement:
 
 1. Use the authorized user's signature with its original aspect ratio and transparency.
-2. Default to fitting the signature within the printed `(인)` width, centered over it. If another size is requested, follow that size.
+2. For this user's documents, default to a signature about **3.2 times the printed `(인)` width**, centered over it, preserving its aspect ratio. This is the size the user approved on 2026-10-25 (twice the preceding review size); the old marker-width default was too small. Follow a new explicit size request, and reduce or reposition only as needed to fit the signature area without covering neighboring fields. Read `signaturePreferences` in the included profile for the measured example sizes; never double repeatedly on subsequent uses.
 3. Set `TreatAsChar=false` and native `TextWrap=InFrontOfText` (COM value **3**). Keep unrelated signature fields and document layout intact.
 4. Verify both the saved properties and the PDF's actual geometry. A correctly configured floating picture may still be displaced by cell anchoring. Adjust per occurrence; never reuse one offset across all signature locations without checking.
 

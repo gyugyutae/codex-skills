@@ -15,7 +15,8 @@ def main():
     ap.add_argument('--forbid', action='append', default=[])
     ap.add_argument('--expected-images', type=int)
     ap.add_argument('--expected-signatures', type=int)
-    ap.add_argument('--signature-fit-ratio', type=float, default=1.15)
+    ap.add_argument('--signature-fit-ratio', type=float, default=3.4,
+                    help='Maximum image/marker width ratio; default allows this user\'s approved 3.2x signature')
     ap.add_argument('--render-dir', type=Path)
     args = ap.parse_args()
     doc = pymupdf.open(args.pdf)

@@ -34,8 +34,8 @@ Supported manifest sections (all optional):
   "replacements": [{"old": "Exact existing text", "new": "", "expected_count": 1}],
   "resize_pictures": [{
     "comment_contains": "SIGNATURE_OVER_IN", "occurrence": 0,
-    "width": 2000, "height": 827, "signature": true,
-    "position": {"HorzOffset": "0", "VertOffset": "600"}
+    "width": 6400, "height": 2646, "signature": true,
+    "position": {"HorzRelTo": "Paper", "VertRelTo": "Paper", "HorzAlign": "Left", "VertAlign": "Top", "HorzOffset": "49650", "VertOffset": "66560", "FlowWithText": "false"}
   }],
   "images": [{
     "table": 4, "row": 3, "col": 1, "file": "capture.png",
@@ -82,13 +82,14 @@ The native round trip must show:
 
 COM's `TextWrap=3` is the Hancom automation enum. Other libraries may expose a different numbering scheme; do not substitute their numbers. [Hancom ParameterSetTable](https://raw.githubusercontent.com/hancom-io/devcenter-archive/main/hwp-automation/ParameterSetTable_2504.pdf) documents the automation values.
 
-Native dimensions and offsets use HWPUNIT, normally 100 per point (about 283.46 per mm). Fit a signature by measuring `(인)` in the PDF, preserve its aspect ratio, then match its image center to the marker center. Do not assume a page-wide or cell-wide reference frame.
+Native dimensions and offsets use HWPUNIT, normally 100 per point (about 283.46 per mm). Measure `(인)` in the PDF, use the user's approved width ratio from `assets/profile.json` (currently 3.2), preserve the image aspect ratio, then match its center to the marker center. The user rejected the old 1x-marker default as too small. Do not assume a page-wide or cell-wide reference frame; the approved example measures 6400×2646 and 5420×2240 HWPUNIT, with different marker widths.
 
 Observed anchoring behavior:
 
 - For `HorzAlign=Right`, a positive `HorzOffset` moved the image left. For `Center`, positive moved it right.
 - `FlowWithText=true` in a cell clamped a negative vertical offset. Setting it false inside that cell moved the object outside its intended cell. A positive offset with the original cell anchor was more reliable.
 - Resizing right-aligned images changes their center even if the offset stays constant. Recompute after resizing.
+- When a cell anchor prevents vertical centering, a floating picture may instead use explicit `Paper` horizontal/vertical references and measured page coordinates. Measure the marker in that document and verify the round trip; do not copy the example's page offsets into another form.
 
 These are observed cases, not universal coordinates. Inspect the exported PDF after each material correction. Check that any unrelated document geometry stays unchanged.
 

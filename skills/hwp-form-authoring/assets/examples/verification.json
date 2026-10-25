@@ -4,10 +4,21 @@
   "uiScreenshots": 10,
   "signatures": 2,
   "tableGeometryPreserved": true,
-  "signatureFitsPrintedMarker": true,
   "pending": [
     "회차별 실제 일시·시간 배분"
   ],
-  "hwpSha256": "64bcfb81712c85ea458d2ebf68b8017db6fd59462d0559acc016ec09cedaf1e7",
-  "pdfSha256": "8dd10fc11114f76547320f376816c573002369dad606243e638cb44305cda560"
+  "hwpSha256": "23d81f11abeae590bccd36cef84be948586e4e6e7d75d736dc1bb18ea456df34",
+  "pdfSha256": "0cf71c1b74f6241dd55c8a87f340ebca3ce8fef45438471e82c7dc0464c8f86c",
+  "signatureCenteredOverPrintedMarker": true,
+  "signatureWidthRatioApproved": 3.2,
+  "signatureSizesHwpunit": [
+    [
+      6400,
+      2646
+    ],
+    [
+      5420,
+      2240
+    ]
+  ]
 }
