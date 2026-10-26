@@ -4,10 +4,10 @@
 
 | 스킬 | 용도 |
 | --- | --- |
-| [visual-talk-html](skills/visual-talk-html/SKILL.md) | 원본 메모·이미지로 글이 적고 그림이 중심인 HTML 발표 자료 작성 |
-| [hwp-form-authoring](skills/hwp-form-authoring/SKILL.md) | 원본 한글 양식, 날짜·체크·자필 공란, 증빙 및 HWP/PDF 검증 |
-| [exam-study-notes](skills/exam-study-notes/SKILL.md) | 제공 자료 범위를 지키는 간결한 인쇄용 시험 정리 PDF 작성 |
-| [application-mail](skills/application-mail/SKILL.md) | 채팅에서 바로 여는 GNU 메일 링크, 올바른 계정의 필수·추천 서류 첨부 초안 준비 |
+| [visualize-html](skills/visualize-html/SKILL.md) | 원본 메모·이미지로 글이 적고 그림이 중심인 HTML 발표 자료 작성 |
+| [hwp](skills/hwp/SKILL.md) | 원본 한글 양식, 날짜·체크·자필 공란, 증빙 및 HWP/PDF 검증 |
+| [study](skills/study/SKILL.md) | 제공 자료 범위를 지키는 간결한 인쇄용 시험 정리 PDF 작성 |
+| [mail](skills/mail/SKILL.md) | 채팅에서 바로 여는 GNU 메일 링크, 올바른 계정의 필수·추천 서류 첨부 초안 준비 |
 
 HWP 스킬에는 개인 프로필·서명이 포함되어 있어 이 저장소는 비공개로 유지합니다.
 
@@ -36,7 +36,7 @@ Codex의 표시 이름·기본 프롬프트를 보존하려고 `agents/openai.ya
 Codex에서 다음처럼 요청합니다. 비공개 저장소에 접근할 GitHub 인증이 필요합니다.
 
 ```text
-$skill-installer https://github.com/gyugyutae/codex-skills/tree/main/skills/hwp-form-authoring 이 스킬을 설치해줘.
+$skill-installer https://github.com/gyugyutae/codex-skills/tree/main/skills/hwp 이 스킬을 설치해줘.
 ```
 
 수동 설치 시 기존 설치본을 먼저 확인하고, 해당 스킬 폴더 전체를 런타임의 사용자 스킬 경로에 복사합니다.
@@ -44,7 +44,7 @@ $skill-installer https://github.com/gyugyutae/codex-skills/tree/main/skills/hwp-
 GitHub 수정은 기존 설치본에 자동 동기화되지 않습니다.
 
 ```text
-$hwp-form-authoring 이 신청서의 원본 서식을 유지해 채워줘. 자필서명란은 비워줘.
+$hwp 이 신청서의 원본 서식을 유지해 채워줘. 자필서명란은 비워줘.
 ```
 
 ## 새 스킬 작성
@@ -66,7 +66,7 @@ cp spec/authoring-guide.md ~/.codex/skill-templates/authoring-guide.md
 ## 검증
 
 ```bash
-python3 -m unittest discover -s tests/hwp-form-authoring -v
+python3 -m unittest discover -s tests/hwp -v
 ```
 
 서명 검증 테스트는 PyMuPDF와 Pillow를 사용합니다. 개인 문서 없이 합성 PDF로 검사합니다.

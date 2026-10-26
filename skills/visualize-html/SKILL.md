@@ -1,5 +1,5 @@
 ---
-name: visual-talk-html
+name: visualize-html
 description: Turn user-supplied notes and images into minimal, visual HTML presentation slides for a speaker to explain aloud. Use for requests such as 노션 메모를 그림 위주 발표 HTML로, 글은 적게 두 장으로, or 사진을 보고 설명할 자료. Prefer this over document-style layouts when the HTML is a visual aid rather than a standalone reading experience.
 ---
 

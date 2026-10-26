@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from urllib.parse import parse_qs, urlparse
 
-SCRIPT = Path(__file__).resolve().parents[2] / 'skills/application-mail/scripts/prepare_mail.py'
+SCRIPT = Path(__file__).resolve().parents[2] / 'skills/mail/scripts/prepare_mail.py'
 
 
 class MailTests(unittest.TestCase):

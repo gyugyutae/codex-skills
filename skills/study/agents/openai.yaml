@@ -1,4 +1,4 @@
 interface:
   display_name: "시험대비 문서 만들기"
   short_description: "제공 자료와 질문만으로 필수 내용을 빠뜨리지 않는 간결한 인쇄용 시험 노트 제작"
-  default_prompt: "$exam-study-notes 제공한 자료와 질문만으로 필수 내용을 보존한 최소 분량의 인쇄용 시험 정리 사본을 만들어줘."
+  default_prompt: "$study 제공한 자료와 질문만으로 필수 내용을 보존한 최소 분량의 인쇄용 시험 정리 사본을 만들어줘."

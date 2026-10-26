@@ -1,5 +1,5 @@
 ---
-name: application-mail
+name: mail
 description: Use when preparing scholarship, internship or other application emails with a direct Gmail compose link, required documents and relevant supporting attachments; also for 확인메일, 지원메일, 방문 요청 and 추천서 요청.
 ---
 

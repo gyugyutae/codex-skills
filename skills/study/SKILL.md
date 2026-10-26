@@ -1,5 +1,5 @@
 ---
-name: exam-study-notes
+name: study
 description: Create compact, printable exam-study notes from supplied lecture notes, slides, screenshots, questions, and project examples. Use for 시험대비 정리, 요약노트, 시험 암기자료, or compressing an existing study PDF while preserving required content.
 ---
 

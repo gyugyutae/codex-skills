@@ -1,5 +1,5 @@
 ---
-name: hwp-form-authoring
+name: hwp
 description: Fill or revise existing Korean HWP forms, applicant dates, confirmed checkboxes and evidence; preserve handwritten-signature blanks and verify HWP/PDF output. Use for 한글 서식 작성, 활동계획서·결과보고서, 증빙 삽입 or authorized signature-image placement. Includes private Kim Gyutae assets.
 ---
 
