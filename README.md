@@ -7,6 +7,7 @@
 | [visual-talk-html](skills/visual-talk-html/SKILL.md) | 원본 메모·이미지로 글이 적고 그림이 중심인 HTML 발표 자료 작성 |
 | [hwp-form-authoring](skills/hwp-form-authoring/SKILL.md) | 원본 한글 양식, 날짜·체크·자필 공란, 증빙 및 HWP/PDF 검증 |
 | [exam-study-notes](skills/exam-study-notes/SKILL.md) | 제공 자료 범위를 지키는 간결한 인쇄용 시험 정리 PDF 작성 |
+| [application-mail](skills/application-mail/SKILL.md) | 채팅에서 바로 여는 GNU 메일 링크, 올바른 계정의 필수·추천 서류 첨부 초안 준비 |
 
 HWP 스킬에는 개인 프로필·서명이 포함되어 있어 이 저장소는 비공개로 유지합니다.
 
