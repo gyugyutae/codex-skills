@@ -7,7 +7,7 @@ import unittest
 import xml.etree.ElementTree as ET
 from PIL import Image
 import pymupdf
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'skills' / 'hwp-form-authoring' / 'scripts'))
 from verify_pdf import verify
 
 
