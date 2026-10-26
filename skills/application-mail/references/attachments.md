@@ -29,7 +29,9 @@ Store input and output **outside the Git repository** in a private directory. Pa
 }
 ```
 
-`compose` returns URL plus manifest, with `pending-upload` if files are selected. It never adds fake attachment URL parameters. `draft` requires `--output`; it writes connector arguments containing base64url attachment bytes with private permissions, not to stdout. The configurable default estimated payload ceiling is 20 MiB; actual provider/tool limits may be smaller. Missing recommended documents are reported; missing required files cause failure.
+`compose` returns URL plus manifest, with `pending-upload` if files are selected. It never adds fake attachment URL parameters. `draft` requires `--output`; it writes connector arguments containing base64url attachment bytes with private permissions, not to stdout. The configurable default estimated payload ceiling is 20 MiB; actual provider/tool limits may be smaller. Missing recommended documents are reported; missing required files cause failure. To offer a text-only link despite missing mandatory files, preserve the original missing-document checklist separately and generate a separate text-only input without attachments; label the result incomplete, never silently downgrade required files to optional.
+
+Each attachment may specify `filename`, e.g. `"filename": "GYUTAE_KIM_CV.pdf"`, to set a clean recipient-facing name without modifying the original. Use only a basename with its real extension. Duplicate names and extension changes are rejected. For UI uploads, make renamed private copies instead. See [business-mail.md](business-mail.md) for naming and correspondence defaults.
 
 ## Connector or browser
 
@@ -37,4 +39,4 @@ Discover current Gmail profile/create-draft/read-draft capabilities. Verify the 
 
 When the connector belongs to another account, switching a From field is not authentication. Use an authenticated browser's intended mailbox if available; upload selected local files using supported browser tools. Wait for upload completion, inspect file chips/count and sender, and capture the real draft URL. If a browser upload requires local path bridging unavailable in that environment, report that limitation; do not claim success.
 
-Prefer an existing draft for retries rather than creating duplicates. Verify all files against the manifest after upload; if the tool only exposes metadata, state that verification scope. User-facing output: direct draft link, sender, required/recommended attachment names, remaining gaps. Do not auto-send based on authorization to prepare or upload.
+Prefer an existing draft for retries rather than creating duplicates. Verify all files against the manifest after upload; if the tool only exposes metadata, state that verification scope. User-facing output: direct draft link, sender, required/recommended attachment names, remaining gaps. If no real draft link can be obtained, state that and offer the account's Drafts folder or a compose fallback with its distinct pending-attachment status; never present the fallback as the uploaded draft. Do not auto-send based on authorization to prepare or upload.

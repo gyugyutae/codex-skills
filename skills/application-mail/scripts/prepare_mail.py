@@ -24,6 +24,7 @@ def prepare(spec, root, mode, max_bytes=20 * 1024 * 1024):
         if '@' not in spec[key]:
             raise ValueError('Email address required: ' + key)
     manifest, missing, parts = [], [], []
+    names = set()
     estimated = len(spec['body'].encode('utf-8')) * 6 + 2048
     for item in spec.get('attachments', []):
         purpose = item.get('purpose')
@@ -32,6 +33,16 @@ def prepare(spec, root, mode, max_bytes=20 * 1024 * 1024):
         if not isinstance(item.get('path'), str) or not item['path']:
             raise ValueError('Attachment path required')
         path = (Path(root) / item['path']).resolve()
+        filename = item.get('filename', path.name)
+        if (not isinstance(filename, str) or not filename.strip()
+                or filename in ('.', '..') or any(c in filename for c in '/\\')
+                or any(ord(c) < 32 or ord(c) == 127 for c in filename)):
+            raise ValueError('Attachment filename must be a safe basename')
+        if Path(filename).suffix.lower() != path.suffix.lower():
+            raise ValueError('Filename extension must match the source; convert content separately')
+        if filename.casefold() in names:
+            raise ValueError('Duplicate attachment filename: ' + filename)
+        names.add(filename.casefold())
         label = item.get('label', path.name)
         if not path.is_file() or path.stat().st_size == 0:
             if purpose == 'required':
@@ -45,12 +56,12 @@ def prepare(spec, root, mode, max_bytes=20 * 1024 * 1024):
         if estimated > max_bytes:
             raise ValueError('Estimated encoded payload exceeds configured limit')
         data = path.read_bytes()
-        mime = mimetypes.guess_type(path.name)[0] or 'application/octet-stream'
-        manifest.append(dict(path=str(path), filename=path.name, label=label,
+        mime = mimetypes.guess_type(filename)[0] or 'application/octet-stream'
+        manifest.append(dict(path=str(path), filename=filename, label=label,
                              purpose=purpose, bytes=len(data), mimeType=mime,
                              sha256=hashlib.sha256(data).hexdigest()))
         if mode == 'draft':
-            parts.append(dict(mime_type=mime, filename=path.name,
+            parts.append(dict(mime_type=mime, filename=filename,
                               content_disposition='attachment',
                               body=dict(base64_url_content=base64.urlsafe_b64encode(data).decode().rstrip('='))))
     if estimated > max_bytes:

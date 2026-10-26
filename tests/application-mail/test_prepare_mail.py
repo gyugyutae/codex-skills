@@ -73,6 +73,25 @@ class MailTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'limit'):
             self.module.prepare(self.spec, self.root, 'draft', max_bytes=20)
 
+    def test_clean_attachment_name_preserves_original(self):
+        original = self.root / '최종진짜(3).pdf'
+        original.write_bytes(b'%PDF-original')
+        self.spec['attachments'] = [dict(path=original.name, purpose='required', filename='GYUTAE_KIM_CV.pdf')]
+        result = self.module.prepare(self.spec, self.root, 'draft')
+        self.assertEqual(result['draftArgs']['payload']['parts'][1]['filename'], 'GYUTAE_KIM_CV.pdf')
+        self.assertEqual(original.read_bytes(), b'%PDF-original')
+
+    def test_unsafe_changed_extension_and_duplicate_names_rejected(self):
+        (self.root / 'cv.pdf').write_bytes(b'%PDF-original')
+        for name in ['../cv.pdf', 'nested/cv.pdf', 'nested\\cv.pdf', 'cv.docx', 'cv\n.pdf']:
+            self.spec['attachments'] = [dict(path='cv.pdf', purpose='required', filename=name)]
+            with self.subTest(name=name), self.assertRaises(ValueError):
+                self.module.prepare(self.spec, self.root, 'draft')
+        self.spec['attachments'] = [dict(path='cv.pdf', purpose='required', filename='CV.pdf'),
+                                    dict(path='cv.pdf', purpose='recommended', filename='cv.pdf')]
+        with self.assertRaisesRegex(ValueError, 'Duplicate'):
+            self.module.prepare(self.spec, self.root, 'draft')
+
 
 if __name__ == '__main__':
     unittest.main()
