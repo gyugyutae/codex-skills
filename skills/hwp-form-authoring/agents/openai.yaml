@@ -1,4 +1,4 @@
 interface:
-  display_name: "한글 서식 작성·서명 배치"
-  short_description: "기존 한글 양식에 개인정보·증빙·서명을 채우고 HWP와 PDF를 검증합니다"
-  default_prompt: "$hwp-form-authoring 기존 한글 서식을 유지해서 내용을 채우고, 승인한 서명 크기로 (인) 위에 겹쳐 넣은 뒤 HWP와 PDF로 저장해줘."
+  display_name: "한글 서식 작성·날짜·체크"
+  short_description: "원본 서식을 유지해 날짜·체크를 채우고 자필서명란은 비워 HWP와 PDF를 검증합니다"
+  default_prompt: "$hwp-form-authoring 기존 한글 서식을 유지해서 내용을 채우고, 작성일은 작성 시점의 현지 날짜로 입력하고 확인된 항목은 체크해줘. 자필서명란과 학교 작성란은 비워 두고 HWP와 PDF로 저장해줘."
