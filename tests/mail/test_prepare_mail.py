@@ -43,6 +43,24 @@ class MailTests(unittest.TestCase):
         self.assertFalse(result['attachmentsUploaded'])
         self.assertNotIn('from_address', result['draftArgs'])
 
+    def test_reply_draft_preserves_context_and_attachment(self):
+        (self.root / 'bank.pdf').write_bytes(b'%PDF-test')
+        self.spec.update(reply_message_id='example-message-id',
+                         attachments=[dict(path='bank.pdf', purpose='required')])
+        result = self.module.prepare(self.spec, self.root, 'draft')
+        self.assertEqual(result['draftArgs']['reply_message_id'], 'example-message-id')
+        self.assertEqual(result['draftArgs']['to'], self.spec['to'])
+        self.assertEqual(result['draftArgs']['payload']['parts'][1]['filename'], 'bank.pdf')
+
+    def test_reply_compose_and_invalid_context_rejected(self):
+        self.spec['reply_message_id'] = 'example-message-id'
+        with self.assertRaisesRegex(ValueError, 'draft mode'):
+            self.module.prepare(self.spec, self.root, 'compose')
+        for value in ['', 'bad id', 'bad\nid', 42]:
+            self.spec['reply_message_id'] = value
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                self.module.prepare(self.spec, self.root, 'draft')
+
     def test_required_missing_fails(self):
         self.spec['attachments'] = [dict(path='absent.pdf', purpose='required')]
         with self.assertRaisesRegex(ValueError, 'required'):

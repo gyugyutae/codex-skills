@@ -23,6 +23,12 @@ def prepare(spec, root, mode, max_bytes=20 * 1024 * 1024):
     for key in ('account', 'to'):
         if '@' not in spec[key]:
             raise ValueError('Email address required: ' + key)
+    reply_id = spec.get('reply_message_id')
+    if reply_id is not None:
+        if not isinstance(reply_id, str) or not reply_id.strip() or any(c.isspace() for c in reply_id):
+            raise ValueError('reply_message_id must be a nonempty Gmail message ID without whitespace')
+        if mode == 'compose':
+            raise ValueError('Replies require draft mode; a compose URL cannot guarantee reply context')
     manifest, missing, parts = [], [], []
     names = set()
     estimated = len(spec['body'].encode('utf-8')) * 6 + 2048
@@ -78,6 +84,8 @@ def prepare(spec, root, mode, max_bytes=20 * 1024 * 1024):
                     body=dict(content='<div>' + html.escape(spec['body']).replace('\n', '<br>\n') + '</div>'))
         payload = dict(mime_type='multipart/mixed', parts=[text] + parts) if parts else text
         result['draftArgs'] = dict(to=spec['to'], subject=spec['subject'], payload=payload)
+        if reply_id is not None:
+            result['draftArgs']['reply_message_id'] = reply_id
     return result
 
 

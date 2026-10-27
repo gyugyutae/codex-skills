@@ -1,4 +1,4 @@
 interface:
-  display_name: "지원 메일과 첨부서류"
-  short_description: "GNU 메일 작성 링크와 필수·추천 서류 첨부 초안을 준비합니다"
-  default_prompt: "Use $mail to prepare a direct email link and attach the required and useful application documents in the correct account."
+  display_name: "메일·회신과 첨부서류"
+  short_description: "기존 대화 회신 또는 새 메일을 작성하고 관련 파일을 실제 초안에 첨부합니다"
+  default_prompt: "Use $mail to prepare a new email or a real reply in the matching existing conversation, upload relevant provided or located documents into the correct account draft, and return a verified link without sending."

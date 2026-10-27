@@ -33,6 +33,8 @@ Store input and output **outside the Git repository** in a private directory. Pa
 
 Each attachment may specify `filename`, e.g. `"filename": "GYUTAE_KIM_CV.pdf"`, to set a clean recipient-facing name without modifying the original. Use only a basename with its real extension. Duplicate names and extension changes are rejected. For UI uploads, make renamed private copies instead. See [business-mail.md](business-mail.md) for naming and correspondence defaults.
 
+For an existing conversation, follow [replies.md](replies.md). Add `"reply_message_id": "<fetched Gmail message ID>"` to the input and use draft mode. A compose link cannot preserve verified reply context.
+
 ## Connector or browser
 
 Discover current Gmail profile/create-draft/read-draft capabilities. Verify the account identity equals `account` before mutation. For the Gmail connector that accepts a MIME tree, `draftArgs` contains `to`, `subject` and a `multipart/mixed` payload: HTML-escaped text part followed by attachment parts with filename, MIME type, disposition and `base64_url_content`. Confirm the live schema before passing arguments. Never print the full payload to tool logs or expose it as a public URL. Retain private working files only as needed; remove temporary encoded payloads after verified upload without deleting source documents.
