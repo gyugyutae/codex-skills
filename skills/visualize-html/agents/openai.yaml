@@ -1,3 +1,3 @@
 interface:
   display_name: "시각 중심 발표 HTML"
-  short_description: "메모와 원본 사진을 핵심 그림 중심의 HTML 발표 화면으로 정리"
+  short_description: "사용자가 이해·강조한 메모와 대화를 제목·그림·짧은 설명의 HTML 발표로 정리"
