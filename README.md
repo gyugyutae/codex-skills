@@ -4,6 +4,7 @@
 
 | 스킬 | 용도 |
 | --- | --- |
+| [documentation](skills/documentation/SKILL.md) | 에이전트용 문서의 의도와 판단 맥락을 보존하며 간결하게 작성·수정 |
 | [visualize-html](skills/visualize-html/SKILL.md) | 원본 메모·이미지로 글이 적고 그림이 중심인 HTML 발표 자료 작성 |
 | [hwp](skills/hwp/SKILL.md) | 원본 한글 양식, 날짜·체크·자필 공란, 증빙 및 HWP/PDF 검증 |
 | [study](skills/study/SKILL.md) | 제공 자료 범위를 지키는 간결한 인쇄용 시험 정리 PDF 작성 |

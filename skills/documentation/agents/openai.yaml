@@ -1,0 +1,5 @@
+interface:
+  display_name: "documentation"
+  short_description: "Write concise agent documents while preserving intent"
+policy:
+  allow_implicit_invocation: true
